@@ -1,8 +1,10 @@
 <template>
+  <!-- 混合在一起的store的写法 -->
   <div class="nav">
     <ul>
       <li><router-link to="/index" active-class="active">Shopping Cart</router-link></li>
       <li><router-link to="/cart" active-class="active">Cart<span v-text="totalItem"></span></router-link></li>
+      <li>{{localComputed}}</li>
     </ul>
   </div>
 </template>

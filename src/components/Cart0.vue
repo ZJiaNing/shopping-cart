@@ -1,4 +1,5 @@
 <template>
+  <!-- 混合在一起的store的写法 -->
   <div class="content">
     <div class="con">
       <!-- cart header starts -->
@@ -11,13 +12,13 @@
       <div class="cart-list">
         <ul>
           <li>
-            <span class="remove"></span>
+            <span class="remove" @click="decrement"></span>
             <span class="name">iPhone 6s</span>
             <span class="info">银色，64G</span>
             <span class="price">6088</span>
           </li>
           <li>
-            <span class="remove"></span>
+            <span class="remove" @click="decrement"></span>
             <span class="name">iPhone 6s</span>
             <span class="info">银色，64G</span>
             <span class="price">6088</span>
@@ -30,6 +31,8 @@
 </template>
 
 <script>
+  import { mapGetters, mapActions } from 'vuex'
+
   export default {
     data()   {
       return {
@@ -45,9 +48,9 @@
     computed: {
 
     },
-    methods: {
-
-    }
+    methods: mapActions([
+      'decrement'
+    ])
   }
 </script>
 

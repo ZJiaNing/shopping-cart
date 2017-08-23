@@ -1,4 +1,5 @@
 <template>
+  <!-- 混合在一起的store的写法 -->
   <div class="content">
       <h1>iPhone 6</h1>
       <div class="con">
@@ -31,21 +32,24 @@
             </ul>
           </dt>
         </dl>
-        <button type="button" name="button" class="add-btn">加入购物车</button>
+        <!-- 注意一下这个click的事件绑定的写法哈~~~ -->
+        <button type="button" name="button" class="add-btn" @click=increment(msg)>加入购物车</button>
       </div>
   </div>
 </template>
 
 <script>
+  import { mapGetters, mapActions } from 'vuex'
+
   export default {
     data() {
       return {
         msg: 'This is Index page'
       }
     },
-    methods: {
-
-    }
+    methods: mapActions([
+      'increment'
+    ])
   }
 </script>
 

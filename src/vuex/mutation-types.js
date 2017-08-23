@@ -6,7 +6,7 @@
 
 
 // 所以，在这个文件中整理了mutation的所有type
-// 然后在其他文件中使用： 
+// 然后在其他文件中使用：
 // import * as types from 'mutation-types'
 // 来把下列这些mutation的事件类型(type)导入
 // 到一个types对象中，供其他地方使用。
