@@ -19,6 +19,8 @@
       }
     },
     computed:{
+      // 使用对象展开运算符将 getters 混入 computed 对象中
+      // 但是需要注意的是.babelrc的配置，需要加入state-3, 否则会报错的（即对...不认识）
       localComputed () {
         return this.totalItem + "123";
       },

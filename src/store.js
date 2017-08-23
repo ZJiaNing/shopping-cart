@@ -25,7 +25,7 @@ const mutations = {
   }
 }
 
-// 进行“事件的分发”的, 触发状态的变更
+// 进行 “事件的分发” 的, 触发状态的变更
 const actions = {
   // increment: ({commit, amount}) => commit('increment', amount),
   increment({commit}, amount) {
