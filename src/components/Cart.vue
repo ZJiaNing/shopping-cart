@@ -1,28 +1,23 @@
 <template>
   <div class="content">
     <div class="con">
-      <!-- cart header starts -->
-      <div class="cart-panel">
-        <span>购物车</span>
-        <span>总计：￥<b>123456</b></span>
-      </div>
-      <!-- cart header ends -->
       <!-- shopping list starts -->
-      <div class="cart-list">
+      <div class="cart-list" v-if="cart.length">
+        <div class="cart-panel">
+          <span>购物车</span>
+          <span>总计：￥<b>{{totalPrice}}</b></span>
+        </div>
         <ul>
-          <li>
-            <span class="remove"></span>
-            <span class="name">iPhone 6s</span>
-            <span class="info">银色，64G</span>
-            <span class="price">6088</span>
-          </li>
-          <li>
-            <span class="remove"></span>
-            <span class="name">iPhone 6s</span>
-            <span class="info">银色，64G</span>
-            <span class="price">6088</span>
+          <li v-for="item in cart">
+            <span class="remove" @click="removeItem(item)"></span>
+            <span class="name">Apple/苹果 iPhone6s</span>
+            <span class="info">{{item.type}}</span>
+            <span class="price">{{item.price}}</span>
           </li>
         </ul>
+      </div>
+      <div class="cart-empty" v-else>
+        <span>E M P T Y</span>
       </div>
       <!-- shopping list ends -->
     </div>
@@ -30,6 +25,8 @@
 </template>
 
 <script>
+  import { mapGetters, mapActions } from 'vuex'
+
   export default {
     data()   {
       return {
@@ -43,10 +40,21 @@
 
     },
     computed: {
-
+      ...mapGetters({
+        cart: 'getCart'
+      }),
+      totalPrice() {
+        let totalPrice = 0
+        for (let i in this.cart) {
+          totalPrice += parseFloat(this.cart[i].price);
+        }
+        return totalPrice
+      }
     },
     methods: {
-
+      ...mapActions([
+        'removeItem'
+      ])
     }
   }
 </script>
@@ -59,7 +67,6 @@
   .cart-panel{
     height: 30px;
     line-height: 30px;
-    margin: 0 15px;
     padding: 0 15px;
     color: #a94442;
     border-color: #ebccd1;
@@ -104,5 +111,13 @@
   }
   .cart-list ul li .price{
     float: right;
+  }
+  .cart-empty{
+    text-align: center;
+    min-height: 200px;
+    line-height: 200px;
+  }
+  .cart-empty span{
+    font-size: 24px;
   }
 </style>

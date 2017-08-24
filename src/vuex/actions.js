@@ -1,5 +1,5 @@
 //将mutation-types.js中的所有输出导入到types对象中
-import * as types from './mutation-types'
+// import * as types from './mutation-types'
 
 //action类似于mutation，不同之处在于，
 //action可以包含异步操作(ajax)，并且action
@@ -21,19 +21,3 @@ import * as types from './mutation-types'
 // 	 return x + y;
 // }
 // add([1, 2]); // 3
-
-
-//实践中我们常用到 参数解构 来简化代码，下边
-//的 { commit } 就用到了解构。
-
-//下边的actions其实就是用来触发mutation和
-//传入参数，因为这里都要跟后台用ajax交互，
-//所以使用action？
-export default {
-	getHottestList({ commit },list) {
-		commit(types.GET_HOTTEST_LIST,list)
-	},
-	getLatestList({ commit },list) {
-		commit(types.GET_LATEST_LIST,list)
-    },
-}

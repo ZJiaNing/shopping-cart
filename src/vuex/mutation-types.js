@@ -11,5 +11,7 @@
 // 来把下列这些mutation的事件类型(type)导入
 // 到一个types对象中，供其他地方使用。
 
-export const ADD_ITEM = 'ADD_ITEM'
-export const REMOVE_ITEM = 'REMOVE_ITEM'
+export const CHANGE_PRICE = 'CHANGE_PRICE'  // 价格切换
+export const CHANGE_STYLE = 'CHANGE_STYLE'  // 颜色切换
+export const ADD_ITEM = 'ADD_ITEM'          // 产品添加
+export const REMOVE_ITEM = 'REMOVE_ITEM'    // 产品移除

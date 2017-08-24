@@ -2,20 +2,24 @@
   <div class="nav">
     <ul>
       <li><router-link to="/index" active-class="active">Shopping Cart</router-link></li>
-      <li><router-link to="/cart" active-class="active">Cart<span v-text="totalItem"></span></router-link></li>
+      <li><router-link to="/cart" active-class="active">Cart<span v-text="cart.length"></span></router-link></li>
     </ul>
   </div>
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
+
   export default{
     data() {
       return {
-        msg: 'This is Nav',
-        totalItem: '0'
+        msg: 'This is Nav'
       }
     },
     computed:{
+      ...mapGetters({
+        cart:'getCart'
+      })
     }
   }
 </script>
